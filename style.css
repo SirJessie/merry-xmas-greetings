@@ -14,7 +14,7 @@ body{
 }
 
 .greetings{
-    width: 800px;
+    width: min(800px, 90%);
     margin: 100px auto;
     text-align: center;
 }
@@ -27,13 +27,14 @@ body{
     color: red;
     text-shadow: 0px 0px 1px red;
     z-index: 3;
+    user-select: none;
 }
 
 .gift-container{
     margin: 0 auto;
     width: 250px;
     height: 250px;
-    perspective: 2000px;
+    perspective: 1000px;
 }
 
 .gift-lids{
@@ -74,23 +75,16 @@ body{
     height: 220px;
     transform: translateX(-25px) translateY(-145px) rotateX(90deg);
 }
-.gift-lids .lid.top::before{
-    content: "";
-    width: 100px;
-    height: 100px;
-    background-color: black;
-    transform: translateX(-25px) translateY(-145px) rotateX(90deg);
-}
 
 .gift-lids .lid.front{
     width: 220px;
     height: 50px;
-    transform: translateX(-5px) translateY(-42px) translateZ(124px);
+    transform: translateX(-5px) translateY(-40px) translateZ(124px);
 }
 
 .gift-lids .lid.right{
     width: 220px;
-    height: 52px;
+    height: 50px;
     transform: rotateY(90deg)  translateY(-35px) translateZ(85px);
 }
 
@@ -101,7 +95,6 @@ body{
     position: relative;
     transform: rotateX(-20deg) rotateY(-50deg);
     z-index: 1;
-    
 }
 
 .gift-box .sides{
@@ -219,4 +212,160 @@ img{
     25% { transform: rotate(-10deg) translateX(-50px); }
     75% { transform: rotate(10deg) translateX(50px); }
     100% { transform: rotate(0deg) translateX(0px); }
+}
+
+button{
+    position: absolute;
+    top: 90px;
+    left: 45%;
+    background-color: red;
+    border-radius: 10px;
+    padding: 10px;
+    color: white;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1300px) {
+    .greetings h1{
+        font-size: 50px;
+        margin-bottom: 150px;
+    }
+
+    .balls{
+        width: 120px;
+        height: 120px;
+    }
+
+    .balls.ball2{
+        right: 100px;
+    }
+
+    .balls.ball4{
+        right: 150px;
+    }
+
+    .santa{
+        width: 220px;
+        height: 220px;
+    }
+}
+
+@media (max-width: 500px) {
+    .greetings h1{
+        font-size: 20px;
+        margin-bottom: 100px;
+        letter-spacing: 3px;
+    }
+    .decor{
+        width: 150px;
+        height: 150px;
+        top: -180px;
+        left: 30%;
+    }
+    .balls{
+        width: 50px;
+        height: 50px;
+    }
+    .balls.ball1{
+        top: -15px;
+        left: 5px;
+    }
+    .balls.ball2{
+        top: -15px;
+        right: 20px;
+    }
+    .balls.ball3{
+        top: 100px;
+        right: 10px;
+    }
+    .balls.ball4{
+        top: 200px;
+        right: 40px;
+    }
+    .balls.ball5{
+        top: 100px;
+        left: 20px;
+    }
+
+    .santa{
+        width: 100px;
+        height: 100px;
+        top: 180px;
+        left: -80px;
+    }
+
+    .gift-lids .lid{
+        transform: rotateX(-20deg) rotateY(-50deg) translate(150%);
+    }
+
+    .gift-lids .lid.top{
+        width: 100px;
+        height: 100px;
+        transform: translateX(63px) translateY(-30px) rotateX(90deg);
+    }
+
+    .gift-lids .lid.front{
+        width: 102px;
+        height: 20px;
+        transform: translateX(25px) translateY(30px) translateZ(20px);
+    }
+
+    .gift-lids .lid.right{
+        width: 100px;
+        height: 18px;
+        transform: rotateY(90deg) translateX(28px) translateY(30px) translateZ(80px);
+    }
+
+    .gift-box{
+        width: 80px;
+        height: 80px;
+        transform: rotateX(-20deg) rotateY(-50deg) translate(150%);
+    }
+
+    .gift-box .sides{
+        width: 80px;
+        height: 80px;
+    }
+
+    .gift-box .sides.front{
+        transform: translateZ(40px);
+    }
+    .gift-box .sides.back{
+        transform: translateZ(-40px);
+    }
+    .gift-box .sides.left{
+        transform: rotateY(90deg) translateZ(-40px);
+    }
+    .gift-box .sides.right{
+        transform: rotateY(90deg) translateZ(40px);
+    }
+    .gift-box .sides.bottom{
+        border: none;
+        transform: rotateX(90deg) translateZ(-40px);
+    }
+
+    .gift-box.open .sides.front{
+        transform: rotateX(-90deg) translateY(-80px) translateZ(40px);
+    }
+
+    .gift-box.open .sides.back{
+        transform: rotateX(90deg) translateY(-80px) translateZ(-40px);
+    }
+
+    .gift-box.open .sides.left{
+        transform: rotateX(90deg) rotateZ(270deg) translateY(-80px) translateZ(-40px);
+    }
+
+    .gift-box.open .sides.right{
+        transform: rotateX(-90deg) rotateZ(90deg) translateY(-80px) translateZ(40px);
+    }
+
+    button{
+        top: 4em;
+        left: 13em;
+        font-size: 12px;
+    }
 }

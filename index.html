@@ -7,9 +7,10 @@
     <title>Merry Christmas Greetings</title>
 </head>
 <body>
-    <audio id="x_audio" autoplay loop>
-        <source src="src/Jingle Bells 7 - Kevin MacLeod.mp3" />
+    <audio id="myAudio" autoplay loop>
+        <source src="src/Jingle Bells 7 - Kevin MacLeod.mp3" type="audio/mp3">
     </audio>
+    <button onclick="document.getElementById('myAudio').play()">PLAY MUSIC</button>
     <img src="src/1-removebg-preview.png" class="balls ball1"/>
     <img src="src/2-removebg-preview.png" class="balls ball2"/>
     <img src="src/3-removebg-preview.png" class="balls ball3"/>
@@ -39,13 +40,8 @@
     const lid = document.getElementById('lid');
     const box = document.getElementById('box');
     const giftbox = document.getElementById('gift');
-    const audio = document.getElementById('x_audio');
 
-    window.addEventListener("onload", function(){
-        audio.play();
-    });
-
-    gift.addEventListener("click", function(){
+    gift.addEventListener('click', function(){
         lid.classList.add('open');
         box.classList.add('open');
 
