@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Merry Christmas Greetings</title>
+</head>
+<body>
+    <audio id="x_audio" autoplay loop>
+        <source src="src/Jingle Bells 7 - Kevin MacLeod.mp3" />
+    </audio>
+    <img src="src/1-removebg-preview.png" class="balls ball1"/>
+    <img src="src/2-removebg-preview.png" class="balls ball2"/>
+    <img src="src/3-removebg-preview.png" class="balls ball3"/>
+    <img src="src/4-removebg-preview.png" class="balls ball4"/>
+    <img src="src/5-removebg-preview.png" class="balls ball5"/>
+    <img src="src/6-removebg-preview.png" class="decor"/>
+    <img src="src/7-removebg-preview.png" class="santa"/>
+    <div class="greetings">
+        <h1>Merry Christmas</h1>
+        <div id="gift" class="gift-container">
+            <div id="lid" class="gift-lids">
+                <div class="lid top"></div>
+                <div class="lid front"></div>
+                <div class="lid right"></div>
+            </div>
+            <div id="box"class="gift-box">
+                <div class="sides front"></div>
+                <div class="sides back"></div>
+                <div class="sides right"></div>
+                <div class="sides left"></div>
+                <div class="sides bottom"></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    const lid = document.getElementById('lid');
+    const box = document.getElementById('box');
+    const giftbox = document.getElementById('gift');
+    const audio = document.getElementById('x_audio');
+
+    window.addEventListener("onload", function(){
+        audio.play();
+    });
+
+    gift.addEventListener("click", function(){
+        lid.classList.add('open');
+        box.classList.add('open');
+
+        setTimeout(function(){
+            window.location.href = "https://www.youtube.com/watch?v=s6RXti2Kr2Y&list=RDs6RXti2Kr2Y&start_radio=1";
+        }, 3000);
+        
+    })
+</script>
+</html>

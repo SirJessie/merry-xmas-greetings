@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=BBH+Hegarty&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "BBH Hegarty", sans-serif;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.greetings{
+    width: 800px;
+    margin: 100px auto;
+    text-align: center;
+}
+
+.greetings h1{
+    position: relative;
+    margin-bottom: 200px;
+    font-size: 60px;
+    letter-spacing: 0.2em;
+    color: red;
+    text-shadow: 0px 0px 1px red;
+    z-index: 3;
+}
+
+.gift-container{
+    margin: 0 auto;
+    width: 250px;
+    height: 250px;
+    perspective: 2000px;
+}
+
+.gift-lids{
+    transform-style: preserve-3d;
+    position: relative;
+    animation: openLid;
+    transform: rotateX(-20deg) rotateY(-50deg);
+    z-index: 2;
+    display: block;
+}
+
+.gift-lids.open{
+    animation-name: open-lid;
+    animation-duration: 1s;
+    animation-delay: 0s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes open-lid {
+    from{
+        top: 0px;
+    }
+    to{
+        top: -100px;
+        display: none;
+    }
+}
+
+.gift-lids .lid{
+    background-color: red;
+    border: solid 2px #fff;
+    position: absolute;
+    transform: rotateX(-20deg) rotateY(-50deg);
+}
+
+.gift-lids .lid.top{
+    width: 220px;
+    height: 220px;
+    transform: translateX(-25px) translateY(-145px) rotateX(90deg);
+}
+.gift-lids .lid.top::before{
+    content: "";
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    transform: translateX(-25px) translateY(-145px) rotateX(90deg);
+}
+
+.gift-lids .lid.front{
+    width: 220px;
+    height: 50px;
+    transform: translateX(-5px) translateY(-42px) translateZ(124px);
+}
+
+.gift-lids .lid.right{
+    width: 220px;
+    height: 52px;
+    transform: rotateY(90deg)  translateY(-35px) translateZ(85px);
+}
+
+.gift-box{
+    transform-style: preserve-3d;
+    width: 200px;
+    height: 200px;
+    position: relative;
+    transform: rotateX(-20deg) rotateY(-50deg);
+    z-index: 1;
+    
+}
+
+.gift-box .sides{
+    background-color: red;
+    border: solid 2px #fff;
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    transition: 0.2s ease;
+    transition-delay: 1s;
+}
+
+.gift-box .sides.front{
+    transform: translateZ(100px);
+}
+.gift-box .sides.back{
+    transform: translateZ(-100px);
+}
+.gift-box .sides.left{
+    transform: rotateY(90deg) translateZ(-100px);
+}
+.gift-box .sides.right{
+    transform: rotateY(90deg) translateZ(100px);
+}
+.gift-box .sides.bottom{
+    border: none;
+    transform: rotateX(90deg) translateZ(-100px);
+}
+
+.gift-box .sides.front{
+    transform: translateZ(100px);
+}
+
+.gift-box.open .sides.front{
+    transform: rotateX(-90deg) translateY(-200px) translateZ(100px);
+}
+
+.gift-box.open .sides.back{
+    transform: rotateX(90deg) translateY(-200px) translateZ(-100px);
+}
+
+.gift-box.open .sides.left{
+    transform: rotateX(90deg) rotateZ(270deg) translateY(-200px) translateZ(-100px);
+}
+
+.gift-box.open .sides.right{
+    transform: rotateX(-90deg) rotateZ(90deg) translateY(-200px) translateZ(100px);
+}
+
+img{
+    position: absolute;
+    top: 0;
+}
+
+.balls{
+    width: 150px;
+    height: 150px;
+    animation: swingingDecorRight 1s infinite;
+}
+
+.balls.ball1{
+    top: -20px;
+    animation-delay: 1s;
+}
+.balls.ball2{
+    top: -50px;
+    right: 200px;
+    animation-delay: 1.1s;
+}
+.balls.ball3{
+    top: 180px;
+    right: 20px;
+    animation-delay: 1.2s;
+}
+.balls.ball4{
+    top: 400px;
+    right: 300px;
+    animation-delay: 1.2s;
+}
+.balls.ball5{
+    top: 100px;
+    left:200px;
+    animation-delay: 1s;
+}
+
+.decor{
+    width: 200px;
+    height: 200px;
+    top: -220px;
+    left: 42%;
+    animation: swingingDecorLeft 5s infinite;
+}
+@keyframes swingingDecorLeft{
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(10deg); }
+    75% { transform: rotate(-10deg); }
+    100% { transform: rotate(0deg); }
+}
+@keyframes swingingDecorRight{
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(-10deg); }
+    75% { transform: rotate(10deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.santa{
+    animation: movingSanta 3s infinite;
+    top: 300px;
+    left: 100px;
+    width: 300px;
+    height: 300px;
+}
+@keyframes movingSanta{
+    0% { transform: rotate(0deg) translateX(0px); }
+    25% { transform: rotate(-10deg) translateX(-50px); }
+    75% { transform: rotate(10deg) translateX(50px); }
+    100% { transform: rotate(0deg) translateX(0px); }
+}
