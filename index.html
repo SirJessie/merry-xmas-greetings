@@ -7,7 +7,7 @@
     <title>Merry Christmas Greetings</title>
 </head>
 <body>
-    <audio id="myAudio" autoplay loop>
+    <audio id="myAudio">
         <source src="src/Jingle Bells 7 - Kevin MacLeod.mp3" type="audio/mp3">
     </audio>
     <button onclick="document.getElementById('myAudio').play()">PLAY MUSIC</button>
@@ -33,22 +33,27 @@
                 <div class="sides left"></div>
                 <div class="sides bottom"></div>
             </div>
+            <h3 id="txt1">Click gift box to open!!!</h3>
         </div>
     </div>
 </body>
+<footer>
+    <span>&copy; 2025 Jessie Turin. All rights reserved.</span>
+</footer>
 <script>
     const lid = document.getElementById('lid');
     const box = document.getElementById('box');
     const giftbox = document.getElementById('gift');
+    const txt1 = document.getElementById('txt1');
 
     gift.addEventListener('click', function(){
         lid.classList.add('open');
         box.classList.add('open');
+        txt1.classList.add('open');
 
         setTimeout(function(){
             window.location.href = "https://www.youtube.com/watch?v=s6RXti2Kr2Y&list=RDs6RXti2Kr2Y&start_radio=1";
         }, 3000);
-        
     })
 </script>
 </html>

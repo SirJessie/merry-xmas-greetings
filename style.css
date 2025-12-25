@@ -25,9 +25,10 @@ body{
     font-size: 60px;
     letter-spacing: 0.2em;
     color: red;
-    text-shadow: 0px 0px 1px red;
+    text-shadow: 0px 0px 5px red;
     z-index: 3;
     user-select: none;
+    font-weight: 400;
 }
 
 .gift-container{
@@ -75,17 +76,53 @@ body{
     height: 220px;
     transform: translateX(-25px) translateY(-145px) rotateX(90deg);
 }
-
+.gift-lids .lid.top::before{
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 100%;
+    background-color: #fff;
+    top: 0px;
+    left: 72px;
+}
+.gift-lids .lid.top::after{
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 100%;
+    background-color: #fff;
+    top: 10px;
+    left: 90px;
+    transform: rotate(90deg);
+}
 .gift-lids .lid.front{
     width: 220px;
     height: 50px;
     transform: translateX(-5px) translateY(-40px) translateZ(124px);
+}
+.gift-lids .lid.front::before{
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 100%;
+    background-color: #fff;
+    top: 0px;
+    left: 72px;
 }
 
 .gift-lids .lid.right{
     width: 220px;
     height: 50px;
     transform: rotateY(90deg)  translateY(-35px) translateZ(85px);
+}
+.gift-lids .lid.right::before{
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 100%;
+    background-color: #fff;
+    top: 0px;
+    left: 72px;
 }
 
 .gift-box{
@@ -110,23 +147,56 @@ body{
 .gift-box .sides.front{
     transform: translateZ(100px);
 }
+.gift-box .sides.front::before{
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 100%;
+    background-color: #fff;
+    top: 0px;
+    left: 65px;
+}
 .gift-box .sides.back{
     transform: translateZ(-100px);
+}
+.gift-box .sides.back::before{
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 100%;
+    background-color: #fff;
+    top: 0px;
+    left: 65px;
 }
 .gift-box .sides.left{
     transform: rotateY(90deg) translateZ(-100px);
 }
+.gift-box .sides.left::before{
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 100%;
+    background-color: #fff;
+    top: 0px;
+    left: 65px;
+}
 .gift-box .sides.right{
     transform: rotateY(90deg) translateZ(100px);
+}
+.gift-box .sides.right::before{
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 100%;
+    background-color: #fff;
+    top: 0px;
+    left: 65px;
 }
 .gift-box .sides.bottom{
     border: none;
     transform: rotateX(90deg) translateZ(-100px);
 }
 
-.gift-box .sides.front{
-    transform: translateZ(100px);
-}
 
 .gift-box.open .sides.front{
     transform: rotateX(-90deg) translateY(-200px) translateZ(100px);
@@ -142,6 +212,34 @@ body{
 
 .gift-box.open .sides.right{
     transform: rotateX(-90deg) rotateZ(90deg) translateY(-200px) translateZ(100px);
+}
+
+.gift-container h3{
+    position: relative;
+    margin-top: 100px;
+    color: red;
+    font-weight:400;
+    animation: bounce 1s infinite;
+    user-select: none;
+}
+
+.gift-container h3.open{
+    animation: fadeOutDown 0.5s forwards;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes fadeOutDown{
+    100%{
+        opacity: 0;
+    }
 }
 
 img{
@@ -188,16 +286,14 @@ img{
     animation: swingingDecorLeft 5s infinite;
 }
 @keyframes swingingDecorLeft{
-    0% { transform: rotate(0deg); }
+    0%, 100% { transform: rotate(0deg); }
     25% { transform: rotate(10deg); }
     75% { transform: rotate(-10deg); }
-    100% { transform: rotate(0deg); }
 }
 @keyframes swingingDecorRight{
     0% { transform: rotate(0deg); }
     25% { transform: rotate(-10deg); }
     75% { transform: rotate(10deg); }
-    100% { transform: rotate(0deg); }
 }
 
 .santa{
@@ -208,15 +304,14 @@ img{
     height: 300px;
 }
 @keyframes movingSanta{
-    0% { transform: rotate(0deg) translateX(0px); }
+    0%, 100% { transform: rotate(0deg) translateX(0px); }
     25% { transform: rotate(-10deg) translateX(-50px); }
     75% { transform: rotate(10deg) translateX(50px); }
-    100% { transform: rotate(0deg) translateX(0px); }
 }
 
 button{
     position: absolute;
-    top: 90px;
+    top: 120px;
     left: 45%;
     background-color: red;
     border-radius: 10px;
@@ -225,6 +320,17 @@ button{
     outline: none;
     border: none;
     cursor: pointer;
+}
+
+footer{
+    font-size: 14px;
+    align-content: center;
+    text-align: center;
+    width: 100%;
+    height: 100px;
+    background-color: red;
+    color: #fff;
+    user-select: none;
 }
 
 /* Responsive adjustments */
@@ -306,17 +412,41 @@ button{
         height: 100px;
         transform: translateX(63px) translateY(-30px) rotateX(90deg);
     }
+    .gift-lids .lid.top::before{
+        width: 25px;
+        height: 100%;
+        top: 0px;
+        left: 36px;
+    }
+    .gift-lids .lid.top::after{
+        width: 25px;
+        height: 100%;
+        top: 0px;
+        left: 36px;
+    }
 
     .gift-lids .lid.front{
         width: 102px;
         height: 20px;
         transform: translateX(25px) translateY(30px) translateZ(20px);
     }
+    .gift-lids .lid.front::before{
+        width: 25px;
+        height: 100%;
+        top: 0px;
+        left: 36px;
+    }
 
     .gift-lids .lid.right{
         width: 100px;
         height: 18px;
         transform: rotateY(90deg) translateX(28px) translateY(30px) translateZ(80px);
+    }
+    .gift-lids .lid.right::before{
+        width: 25px;
+        height: 100%;
+        top: 0px;
+        left: 36px;
     }
 
     .gift-box{
@@ -333,14 +463,38 @@ button{
     .gift-box .sides.front{
         transform: translateZ(40px);
     }
+    .gift-box .sides.front::before{
+        width: 18px;
+        height: 100%;
+        top: 0px;
+        left: 28px;
+    }
     .gift-box .sides.back{
         transform: translateZ(-40px);
+    }
+    .gift-box .sides.back::before{
+        width: 18px;
+        height: 100%;
+        top: 0px;
+        left: 28px;
     }
     .gift-box .sides.left{
         transform: rotateY(90deg) translateZ(-40px);
     }
+    .gift-box .sides.left::before{
+        width: 18px;
+        height: 100%;
+        top: 0px;
+        left: 28px;
+    }
     .gift-box .sides.right{
         transform: rotateY(90deg) translateZ(40px);
+    }
+    .gift-box .sides.right::before{
+        width: 18px;
+        height: 100%;
+        top: 0px;
+        left: 28px;
     }
     .gift-box .sides.bottom{
         border: none;
@@ -362,10 +516,19 @@ button{
     .gift-box.open .sides.right{
         transform: rotateX(-90deg) rotateZ(90deg) translateY(-80px) translateZ(40px);
     }
+    
+    .gift-container h3{
+        font-size: 14px;
+    }
 
     button{
         top: 4em;
         left: 13em;
         font-size: 12px;
+    }
+
+    footer{
+        font-size: 8px;
+        letter-spacing: 0px;
     }
 }
